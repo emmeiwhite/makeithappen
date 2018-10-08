@@ -6,12 +6,17 @@ import person from './images/person7.jpeg';
 
 
 class Counter extends Component {
-    state = {  
-        count:0,
-        imgPerson:'https://picsum.photos/200', // getting from the server
-        localImage:'./images/person8',
-        lists:['tag1','tag2','tag3']
+    constructor(){
+        super(); // calling Parent Class (Component Class) constructor
+        this.state = {  
+            count:0,
+            imgPerson:'https://picsum.photos/200', // getting from the server
+            localImage:'./images/person8',
+            lists:['tag1','tag2','tag3']
+        }
+        console.log("Within CONSTRUCTOR",this);
     }
+ 
 
     styles = {
         marginLeft:20,
@@ -23,7 +28,7 @@ class Counter extends Component {
                 <span className={this.newMethod()}>{this.formatCount()}</span>
                 <img src={this.state.imgPerson} alt="Not Loading, Not Loading"/>
                 <img src={person} style={this.styles}/>
-                <button onClick={this.onClickHandler} className="btn btn-secondary btn-sm">Increment</button>
+                <button onClick={this.handleClick} className="btn btn-secondary btn-sm">Increment</button>
                 {/* Rendering Lists: */}
                 <h1>Rendering Lists</h1> <button onClick={this.makeListsEmpty}>{this.state.lists.length===0?"SHOW LISTS":"Here is the list"}</button>
                 {this.renderTags()}
@@ -52,10 +57,13 @@ class Counter extends Component {
 
     }
 
-    onClickHandler=()=>{
-        const newState = {...this.state};//We never mutate the state, Here we have copied the state
-        newState.count=10;
-        this.setState(newState); 
+    handleClick=()=>{
+        // const newState = {...this.state};//We never mutate the state, Here we have copied the state
+        // newState.count=10;
+        // this.setState(newState); 
+
+        this.setState({count:this.state.count+1}); // Here we are no longer mutating the state
+
     }
 
     renderTags=()=>{
