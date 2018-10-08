@@ -1,19 +1,14 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
 
 
-// At the heart of the react application is the root component, App 
-class App extends Component {
-  render() { // o/p of this render method is a react element which is a plane simple javascript object which maps with the DOM element
-    return (
-     React.createElement(
-       "h1",
-       {className:'col-md-12'},
-       "The code is already in react, Babel has no work to do"
-     )
-    );
-  }
+class App extends React.Component{
+    render(){
+        return(
+            <div>
+                <h1>WORKING FINE !</h1>
+            </div>
+        )
+    }
 }
 
 export default App;
