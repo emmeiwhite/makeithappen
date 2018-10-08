@@ -7,9 +7,11 @@ import './App.css';
 class App extends Component {
   render() { // o/p of this render method is a react element which is a plane simple javascript object which maps with the DOM element
     return (
-      <div className="App">
-         What matters is how you percieve things
-      </div>
+     React.createElement(
+       "h1",
+       {className:'col-md-12'},
+       "The code is already in react, Babel has no work to do"
+     )
     );
   }
 }
