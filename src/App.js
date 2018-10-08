@@ -1,14 +1,16 @@
 import React from 'react';
 
+import Counter from './components/counter';
+
 
 class App extends React.Component{
     render(){
         return(
-            <div>
-                <h1>WORKING FINE !</h1>
-            </div>
-        )
+               <Counter/>
+        );
     }
 }
 
 export default App;
+
+
