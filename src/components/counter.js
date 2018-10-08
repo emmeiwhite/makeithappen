@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 // let person7 = require('./images/person7.jpeg');
 
-import person7 from './images/person7.jpeg';
+import person from './images/person7.jpeg';
 
 
 class Counter extends Component {
@@ -12,14 +12,25 @@ class Counter extends Component {
         localImage:'./images/person8',
         altText:"UnAble to load the local image"
     }
+
+    styles = {
+        marginLeft:20,
+        marginRight:20
+    }
     render() { 
         return ( 
             <React.Fragment> {/* No more Extra Div*/}
-                <h1>{this.formatCount()}</h1>
+                <span className={this.newMethod()}>{this.formatCount()}</span>
                 <img src={this.state.imgPerson} alt="Not Loading, Not Loading"/>
-                <img src={person7} />
-                <button onClick={this.onClickHandler}>Increment</button>
+                <img src={person} style={this.styles}/>
+                <button onClick={this.onClickHandler} className="btn btn-secondary btn-sm">Increment</button>
             </React.Fragment>);
+    }
+
+    newMethod() {
+        let classes = "badge  m-2 badge-";
+        classes += this.state.count === 0 ? 'warning' : 'danger';
+        return classes;
     }
 
     formatCount(){

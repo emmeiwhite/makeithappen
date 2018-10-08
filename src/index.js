@@ -1,6 +1,8 @@
 import React from 'react'; // from react module we are importing React object
 import ReactDOM from 'react-dom';
 
+import 'bootstrap/dist/css/bootstrap.css'; // using bootstrap 4.1.1
+
 import {createStore} from 'redux';
 import {Provider} from 'react-redux';
 
